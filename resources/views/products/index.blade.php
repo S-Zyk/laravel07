@@ -12,6 +12,13 @@
             <div>{{$product->img}}</div>
             <div>{{$product->status}}</div>
             <div>{{$product->description}}</div>
+            <div><a href="{{route('products.edit', ['product' => $product->id])}}">edit</a></div>
+            <div><form action="{{route('products.destroy', ['product' => $product->id])}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
         </div>
     @endforeach
     </div>

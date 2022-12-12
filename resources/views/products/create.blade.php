@@ -2,8 +2,13 @@
 
 @section('content')
     <div class="container">
+        @foreach($errors->all() as $error)
+            <div class="alert alert-danger" role="alert">
+                {{$error}}
+            </div>
+        @endforeach
         <h2>Create product</h2>
-        <form action="{{ route('products.store') }}" method="POST">
+        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row p-3">
                 <div class="col-md-6">
@@ -16,7 +21,11 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Category_id:</strong>
-                        <input type="number" name="category_id" class="form-control" placeholder="category_id">
+                        <select type="number" name="category_id" class="form-control" placeholder="category_id">
+                            @foreach($categories as $category)
+                                <option value="{{$category->name}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
@@ -38,7 +47,12 @@
             </div>
 
             <div class="row p-3">
-
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <strong>status</strong>
+                       <input name="status" type="checkbox" value="1">
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Description:</strong>
