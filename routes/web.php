@@ -24,4 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('products', ProductsController::class);
 
-
+Route::middleware(['auth'])->post('/new-form', [\App\Http\Controllers\FormController::class, 'create'])->name('form_create');
