@@ -7,6 +7,7 @@
                 {{$error}}
             </div>
         @endforeach
+
         <h2>New form for {{$user = auth()->user()->name}}</h2>
 
         <form action="{{ route('form_create') }}" method="POST" enctype="multipart/form-data">

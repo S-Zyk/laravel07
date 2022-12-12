@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Product;
